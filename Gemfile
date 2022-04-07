@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails',      '6.1.4.1'
 gem 'puma',       '5.3.1'
+gem 'bcrypt', '3.1.13'
 gem 'bootstrap-sass', '3.4.1'
 gem 'sass-rails', '6.0.0'
 gem 'webpacker',  '5.4.0'
@@ -40,4 +41,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 # Uncomment the following line if you're running Rails
 # on a native Windows system:
-# gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
