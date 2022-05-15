@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  def new
+  def new 
+    
   end
   
   def destroy
@@ -12,12 +13,23 @@ def create
   if @user  && @user.authenticate(params[:session][:password])
     log_in @user
     params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
-    redirect_to @user # same as user_url(user)
+    redirect_back_or @user
   else
  flash.now[:danger] = 'Invalid email/password combination' 
   render 'new'
   end
 end
+
+def edit
+  @user = User.find(params[:id])
+end
+
+private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    
+    end
 
 
 
